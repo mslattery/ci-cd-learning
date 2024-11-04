@@ -12,6 +12,13 @@ build-job:
 
 test-job1: 
   stage: test
+  services:
+    - name: mysql:latest
+      alias: mysql
+      variables:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: test
+  image: python:3.9.12-slim
   script:
     - echo "This job tests"
     - sleep 10
