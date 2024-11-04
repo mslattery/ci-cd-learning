@@ -9,6 +9,11 @@ build-job:
   stage: build
   script:
     - echo "Hello, $GITLAB_USER_LOGIN in workspace dir $CI_PROJECT_DIR"
+    - ls -l $CI_PROJECT_DIR > files.log
+  artifacts:
+    paths:
+      - files.log
+    expire_in: 1 week
 
 test-job1: 
   stage: test
