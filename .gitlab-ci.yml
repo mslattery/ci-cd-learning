@@ -26,6 +26,8 @@ test-job1:
   image: python:3.9.12-slim
   script:
     - echo "This job tests"
+    - ls -l $CI_PROJECT_DIR
+    - cat $CI_PROJECT_DIR/files.log
     - sleep 10
 
 deploy-prod:
