@@ -18,3 +18,4 @@ deploy-prod:
   stage: deploy
   script:
     - echo "This job delploys something from $CI_COMMIT_BRANCH branch."
+    - printenv
