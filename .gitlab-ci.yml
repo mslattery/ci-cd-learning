@@ -19,5 +19,5 @@ test-job1:
 deploy-prod:
   stage: deploy
   script:
-    - echo "This job delploys something from $CI_COMMIT_BRANCH branch."
+    - echo "This job delployed $CI_COMMIT_REF_NAME from $CI_COMMIT_BRANCH branch, due to $CI_PIPELINE_SOURCE."
     - printenv
