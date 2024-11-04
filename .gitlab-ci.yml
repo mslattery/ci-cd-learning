@@ -24,3 +24,14 @@ deploy-prod:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push"'
       when: manual
+
+.docker-build:
+  stage: build
+  script:
+    - docker build -t my-image:$CI_COMMENT_REF_SLUG
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    changes:
+      - Dockerfile
+    when: manual
+    allow_failure: true
